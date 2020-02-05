@@ -79,9 +79,19 @@ def movies_with_director_key(name, movies_collection)
             # },
             # { :name => "Nancy Drew", :movies => [
             #   { :title => "Biting" }
-  dir_info = movie_with_director_name(name, movies_collection)
+  # dir_info = movie_with_director_name(name, movies_collection)
 
-  result = {:name => dir_info[:director_name], :movies => [:titles => dir_info[:title]]}
+  # result = {:name => dir_info[:director_name], :movies => [:titles => dir_info[:title]]}
+  # return result
+  
+  
+  result = []
+  i = 0
+  dir_info = movie_with_director_name(name, movies_collection)
+  
+  while i < dir_info.length do 
+    result << dir_info[i][:titles]
+  end 
   return result
   
 end
