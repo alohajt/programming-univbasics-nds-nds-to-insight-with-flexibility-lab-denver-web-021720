@@ -1,8 +1,11 @@
 # Provided, don't edit
 require 'directors_database'
+require 'pp'
 
-# A method we're giving you. This "flattens"  Arrays of Arrays so: [[1,2],
-# [3,4,5], [6]] => [1,2,3,4,5,6].
+# A method we're giving you. This "flattens"  Arrays of Arrays so: 
+# [[1,2],
+# [3,4,5], 
+# [6]] => [1,2,3,4,5,6].
 
 def flatten_a_o_a(aoa)
   result = []
@@ -48,6 +51,39 @@ def movies_with_director_key(name, movies_collection)
   # Array of Hashes where each Hash represents a movie; however, they should all have a
   # :director_name key. This addition can be done by using the provided
   # movie_with_director_name method
+  # pp movies_collection
+  
+      # input
+      # director_name = "Byron Poodle"
+      # movies_coll = {
+      #   :worldwide_gross => 2,
+      #   :release_year => 2014,
+      #   :studio => "Karbit Poodles",
+      #   :title => "The Fire Hydrant of Doom"
+      # }
+      # new_movie = movie_with_director_name(director_name, movies_coll)
+      # expect(new_movie[:director_name]).to eq(director_name)
+      
+    # describe 'movies_with_director_key' do
+    # it 'adds a :director_name key an AoH of movies' do
+    # dir_name = "Byron Poodle"
+    # test_set = [{:title => "TestA"}, {:title => "TestB"}]
+    # updated_movies = movies_with_director_key(dir_name, test_set)
+    # expect(updated_movies[0][:director_name]).to eq(dir_name), "Should add director name to each movie Hash"
+    # expect(updated_movies[1][:director_name]).to eq(dir_name), "Should add director name to each movie Hash"
+
+            #   { :name => "Byron Poodle", :movies => [
+            #   { :title => "At the park" },
+            #   { :title => "On the couch" },
+            # ]
+            # },
+            # { :name => "Nancy Drew", :movies => [
+            #   { :title => "Biting" }
+  dir_info = movie_with_director_name(name, movies_collection)
+
+  result = {:name => dir_info[:director_name], :movies => [:titles => dir_info[:title]]}
+  return result
+  
 end
 
 
